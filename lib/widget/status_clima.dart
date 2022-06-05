@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class StatusClima extends StatelessWidget {
-  final int temperatura;
+  final double temperatura;
   final String estadoClima;
   final Widget imagen;
+  final bool celcius;
 
 
  const StatusClima({Key? key,
     required this.temperatura,
     required this.estadoClima,
-    required this.imagen 
+    required this.imagen, 
+    required this.celcius
   }) : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class StatusClima extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            '$temperatura°',
+            '${temperatura.toStringAsFixed(2)}°${!celcius ? 'C' : 'F'}',
             style: const TextStyle(
               fontSize: 30,
             ),
